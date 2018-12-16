@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <section>
+        <h1>Currency Converter</h1>
+        <p class="info">Choose Currencies and Amount</p>
+        <form th:action="@{/convert-sum}" th:object="${convertSumForm}" method="post" class="center-align">
+            <div>
+                <div>
+                    <label>From:</label>
+                    <select th:field="*{fromCurrency}">
+                        <option th:each="currency : ${currencies}" th:value="${currency}"
+                                th:text="${currency}"
+                                th:selected="${convertSumForm.setFromCurrency(currency)}"></option>
+                    </select>
+                </div>
+
+                <div>
+                    <input id="amount" type="number" th:field="*{amount}" th:value="${convertSumForm.getAmount()}"/>
+                    <label for="amount">Amount</label>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label>To:</label>
+                    <select th:field="*{toCurrency}">
+                        <option th:each="currency : ${currencies}" th:value="${currency}"
+                                th:text="${currency}"
+                                th:selected="${convertSumForm.setToCurrency(currency)}"></option>
+                    </select>
+                </div>
+
+                <div>
+                    <input id="result" type="number" th:value="${convertSumForm.getResult()}" readonly="readonly"/>
+                    <label for="result">Converted Amount</label>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <button type="submit">Calculate</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+conv/domain/BeanFactory.class
+conv/presentation/converter/ConvController.class
+conv/domain/Currency.class
+conv/repository/CurrencyRepository.class
+conv/config/ConvertConfig.class
+conv/domain/CurrencyDTO.class
+conv/presentation/converter/ConverterForm.class
+conv/Main.class
+conv/application/ConverterService.class
